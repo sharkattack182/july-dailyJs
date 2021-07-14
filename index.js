@@ -3,7 +3,13 @@
 // A word-chain is an array of words, where the next word is formed by changing exactly one letter from the previous word. We do not add or subtract letters from words, only change them.
 // Create a function that returns true if an array is a word-chain and false otherwise.
 
-
+function isWordChain(words) {
+	for(i=0; i<words.length-1; i++) {
+		if([...words[i]].filter((w,j) => w != words[i+1][j]).length > 1)
+			return false
+	}
+	return true
+}
 
 
 isWordChain(["meal", "seal", "seat", "beat", "beet"]) 
